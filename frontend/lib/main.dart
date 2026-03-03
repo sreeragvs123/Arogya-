@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/pages/graphdetail_page.dart';
-import 'package:frontend/pages/myhome_page.dart';
-import 'package:frontend/pages/profile_page.dart';
+import 'package:frontend/pages/front_page.dart';
+
 
 
 void main() {
@@ -19,11 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MyHomePage(),
-      routes:{
-        '/graphPage' : (context) => GraphPage(),
-        '/profilePage' : (context) => ProfilePage(),
-      }
+      home: FrontPage(),
     );
   }
 }

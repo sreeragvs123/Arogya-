@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 
 
 class ArogyaBottomNavigatorBar extends StatelessWidget {
-  const ArogyaBottomNavigatorBar({super.key});
+  final int currIndex;
+  final Function(int) onTap;
+
+  const ArogyaBottomNavigatorBar({super.key,required this.currIndex,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        onTap:(index){
-          if(index == 0){
-            Navigator.pushReplacementNamed(context,'/graphPage');
-          }
-          else if(index == 1){
-            Navigator.pushReplacementNamed(context,'/profilePage');
-          }
-        },
+        currentIndex: currIndex,
+        onTap:onTap,
         items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Home",
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.bar_chart),
           label:"Graph",
