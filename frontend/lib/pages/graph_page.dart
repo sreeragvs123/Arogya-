@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/design/appbar.dart';
-import 'package:frontend/design/bottomNavigator.dart';
+import 'package:frontend/design/bottomnavigator.dart';
 
 class GraphPage extends StatelessWidget {
   const GraphPage({super.key});
