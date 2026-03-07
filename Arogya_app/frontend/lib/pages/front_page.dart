@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:frontend/design/bottomnavigator.dart';
-import 'package:frontend/design/appbar.dart';
-import 'package:frontend/design/drawer.dart';
+import 'package:frontend/widgets/bottomnavigator.dart';
+import 'package:frontend/widgets/appbar.dart';
+import 'package:frontend/widgets/drawer.dart';
 import 'package:frontend/pages/graph_page.dart';
 import 'package:frontend/pages/homepage.dart';
 import 'package:frontend/pages/profile_page.dart';
