@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:frontend/pages/homepage.dart";
+import "package:frontend/configs/signupvalidator.dart";
 
 
 
@@ -90,7 +91,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           style:TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18
-                          )
+                          ),
+                          validator: (value)=>SignUpValidator.validator(value: value??'', type:'Username'),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         const SizedBox(height:17),
 
@@ -107,14 +110,16 @@ class _SignUpPageState extends State<SignUpPage> {
                           style:TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18
-                          ) 
+                          ),
+                          validator: (value)=>SignUpValidator.validator(value: value??'', type: 'Email'),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         const SizedBox(height:17),
 
                         TextFormField(
                           controller:phoneNoController,
                           decoration: InputDecoration(
-                            labelText:"Phone No",
+                            labelText:"Phone Number",
                             border:OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(20),
@@ -123,7 +128,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           style:TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18
-                          ) 
+                          ),
+                          validator: (value)=>SignUpValidator.validator(value: value??'', type:'PhoneNo'),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         const SizedBox(height:17),
 
@@ -139,7 +146,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           style:TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18
-                          )
+                          ),
+                          validator:(value)=>SignUpValidator.validator(value: value??'', type: 'Password'),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         const SizedBox(height:17),
                         SizedBox(
