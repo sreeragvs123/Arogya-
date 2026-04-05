@@ -1,10 +1,9 @@
 package com.Grp._8.backend.controllers;
 
-import com.Grp._8.backend.entities.Paitent;
-import com.Grp._8.backend.services.DoctorService;
-import com.Grp._8.backend.services.PaitentService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.Grp._8.backend.dto.LoginRequestDTO;
+import com.Grp._8.backend.dto.LoginResponseDTO;
+import com.Grp._8.backend.dto.UserSignUpDTO;
+import com.Grp._8.backend.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,13 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class AuthController {
 
-    private final PaitentService paitentService;
-    private final DoctorService doctorService;
 
-    @PostMapping("/paitent/signUp")
-    public ResponseEntity<Paitent> signUp(@RequestBody Paitent paitent) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
+    private final AuthService authService;
+
+    @PostMapping("/signUp")
+    public ResponseEntity<UserSignUpDTO> UsersignUp(@RequestBody UserSignUpDTO user) {
+        UserSignUpDTO savedPaitent = authService.signUp(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPaitent);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequest) {
+        LoginResponseDTO tokens = authService.login(loginRequest);
+        return ResponseEntity.ok(tokens);
+    }
 
 }
